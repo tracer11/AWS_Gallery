@@ -44,6 +44,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'products',
+    'rest_framework',
+    'django_extensions',
+    'django_filters',
+    'corsheaders'
+
 ]
 
 MIDDLEWARE = [
@@ -75,6 +81,14 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'aws_gallery.wsgi.application'
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS' : (
+            'django_filters.rest_framework.DjangoFilterBackend',
+            'rest_framework.filters.SearchFilter',
+            'rest_framework.filters.OrderingFilters'
+        )
+}
 
 
 # Database
