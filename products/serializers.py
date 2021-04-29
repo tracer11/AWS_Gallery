@@ -3,16 +3,20 @@ from .models import Category, Seller, Product
 
 class CategorySerilaizer(ModelSerializer):
   
-  photo = SerializersMethodField()
+  first_photo = SerializersMethodField()
 
-  def get_photo(self, obj):
+  def get_first_photo(self, obj):
     try:
       return obj.products.first().photo
     except:
       return ''
   class Meta:
     model = Category
-    fields = ['__all__']
+    fields = [
+      'id',
+      'name',
+      'first_photo'
+    ]
 
 
 
